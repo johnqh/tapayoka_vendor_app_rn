@@ -1,0 +1,11 @@
+{
+  "name": "tapayoka_vendor_app_rn",
+  "displayName": "Tapayoka Vendor",
+  "expo": {
+    "name": "Tapayoka Vendor",
+    "slug": "tapayoka-vendor",
+    "version": "0.0.1",
+    "orientation": "portrait",
+    "platforms": ["ios", "android"]
+  }
+}
