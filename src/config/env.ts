@@ -25,6 +25,11 @@ export const env = {
   FIREBASE_MESSAGING_SENDER_ID: getEnv('EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID'),
   FIREBASE_APP_ID: getEnv('EXPO_PUBLIC_FIREBASE_APP_ID'),
 
+  // Branding
+  APP_NAME: getEnv('VITE_APP_NAME', 'Tapayoka Vendor'),
+  APP_DOMAIN: getEnv('VITE_APP_DOMAIN', 'tapayoka.com'),
+  COMPANY_NAME: getEnv('VITE_COMPANY_NAME', 'Sudobility'),
+
   // Development
   DEV_MODE: getEnv('EXPO_PUBLIC_DEV_MODE', 'false') === 'true',
 };

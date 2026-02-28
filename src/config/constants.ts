@@ -2,7 +2,11 @@
  * App constants
  */
 
-export const APP_NAME = 'Tapayoka Vendor';
+import { env } from './env';
+
+export const APP_NAME = env.APP_NAME;
+export const APP_DOMAIN = env.APP_DOMAIN;
+export const COMPANY_NAME = env.COMPANY_NAME;
 
 // Default language
 export const DEFAULT_LANGUAGE = 'en';
