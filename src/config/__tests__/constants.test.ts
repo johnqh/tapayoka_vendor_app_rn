@@ -26,10 +26,12 @@ describe('constants', () => {
   });
 
   it('should export TAB_NAMES with expected keys', () => {
-    expect(TAB_NAMES.DEVICES).toBeDefined();
+    expect(TAB_NAMES.LOCATIONS).toBeDefined();
+    expect(TAB_NAMES.CATEGORIES).toBeDefined();
     expect(TAB_NAMES.ORDERS).toBeDefined();
     expect(TAB_NAMES.SETTINGS).toBeDefined();
-    expect(typeof TAB_NAMES.DEVICES).toBe('string');
+    expect(typeof TAB_NAMES.LOCATIONS).toBe('string');
+    expect(typeof TAB_NAMES.CATEGORIES).toBe('string');
     expect(typeof TAB_NAMES.ORDERS).toBe('string');
     expect(typeof TAB_NAMES.SETTINGS).toBe('string');
   });

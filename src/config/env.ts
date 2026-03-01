@@ -32,6 +32,10 @@ export const env = {
 
   // Development
   DEV_MODE: getEnv('EXPO_PUBLIC_DEV_MODE', 'false') === 'true',
+
+  // Transport: 'ble' (default) or 'ws' (local dev without BLE hardware)
+  TRANSPORT: getEnv('EXPO_PUBLIC_TRANSPORT', 'ble'),
+  WS_DEVICE_URL: getEnv('EXPO_PUBLIC_WS_DEVICE_URL', 'ws://localhost:8765'),
 };
 
 /** Firebase config object for the JS SDK (used on desktop) */

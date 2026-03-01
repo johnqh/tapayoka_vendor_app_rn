@@ -24,7 +24,8 @@ export const STORAGE_KEYS = {
 
 // Tab names
 export const TAB_NAMES = {
-  DEVICES: 'DevicesTab',
+  LOCATIONS: 'LocationsTab',
+  CATEGORIES: 'CategoriesTab',
   ORDERS: 'OrdersTab',
   SETTINGS: 'SettingsTab',
 } as const;

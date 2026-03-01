@@ -32,7 +32,7 @@ bun run verify            # typecheck + lint + test
 
 ## Key Features
 
-- BLE device setup (react-native-ble-plx)
+- BLE device setup (react-native-ble-plx) with WebSocket fallback for local dev
 - Device management
 - Order monitoring
 - Firebase authentication (platform-specific)
@@ -68,7 +68,10 @@ src/
 │   ├── orders/OrdersScreen.tsx
 │   └── settings/SettingsScreen.tsx
 ├── services/
-│   ├── ble/BleManager.ts             # BLE scanning & device setup
+│   ├── ble/
+│   │   ├── index.ts                  # Transport-switching barrel (BLE or WS)
+│   │   ├── BleManager.ts             # BLE scanning & device setup (react-native-ble-plx)
+│   │   └── WsBleManager.ts           # WebSocket fallback for local dev
 │   └── googleAuth.ts                 # PKCE OAuth flow for desktop
 ├── native/
 │   └── WebAuth.ts                    # Native module bridge for desktop auth
@@ -92,6 +95,16 @@ Via `react-native-config` (EXPO_PUBLIC_* prefix):
 | `EXPO_PUBLIC_FIREBASE_API_KEY` | Firebase API key |
 | `EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN` | Firebase auth domain |
 | `EXPO_PUBLIC_FIREBASE_PROJECT_ID` | Firebase project ID |
+| `EXPO_PUBLIC_TRANSPORT` | `ble` (default) or `ws` for local dev |
+| `EXPO_PUBLIC_WS_DEVICE_URL` | WebSocket URL when TRANSPORT=ws (default `ws://localhost:8765`) |
+
+## WebSocket Dev Mode
+
+For local development without BLE hardware, set `EXPO_PUBLIC_TRANSPORT=ws` in `.env`. This swaps all BLE functions (`scanForDevices`, `readDeviceInfo`, `setupServerWallet`) to use WebSocket instead of react-native-ble-plx.
+
+Requires tapayoka_pi running in WS mode (`TRANSPORT=ws python -m src.main`).
+
+Import from `@/services/ble` (the barrel) to get automatic transport switching. Importing directly from `@/services/ble/BleManager` always uses BLE.
 
 ## Gotchas
 
